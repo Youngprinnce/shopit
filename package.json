@@ -4,12 +4,14 @@
   "description": "ecommerce site",
   "main": "index.js",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.5",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
+    "nodemailer": "^6.6.2",
     "validator": "^13.6.0"
   },
   "scripts": {
