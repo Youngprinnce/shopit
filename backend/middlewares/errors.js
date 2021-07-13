@@ -38,10 +38,8 @@ module.exports = (err, req, res, next) => {
     //     success: false,
     //     message: error.message || 'Internal Server Error'
     // })
-
    
-
-
+    
     //DEVELOPMENT MODE
     err.statusCode = err.statusCode || 500;
     res.status(err.statusCode).json({
