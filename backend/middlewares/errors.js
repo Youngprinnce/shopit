@@ -15,11 +15,31 @@ module.exports = (err, req, res, next) => {
     //     error = new ErrorHandler(message, 400)
     // }
 
+    //Handling mongoose duplicate key errors
+    // if(err.code === 11000){
+    //     const message = `Duplicate ${object.Keys(err.keyValue)} entered`
+    //     error = new ErrorHandler(message, 400)
+    // }
+
+    //Handling wrong JWT error
+    // if(err.name === 'JsonWebTokenError'){
+    //     const message = `JSON Web Token is invalid. Try Again!!!`
+    //     error = new ErrorHandler(message, 400)
+    // }
+
+    //Handling Expired JWT error
+    // if(err.name === 'TokenExpiredError'){
+    //     const message = `JSON Web Token is expired. Try Again!!!`
+    //     error = new ErrorHandler(message, 400)
+    // }
+
     // error.message = err.message;
     // res.status(error.statusCode || 500).json({
     //     success: false,
     //     message: error.message || 'Internal Server Error'
     // })
+
+   
 
 
     //DEVELOPMENT MODE
