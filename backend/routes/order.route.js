@@ -1,12 +1,14 @@
 const express = require('express')
 const router = express.Router();
 
-const { newOrder, 
+const { 
+    newOrder, 
     getSingleOrder, 
     myOrders, 
     allOrders, 
     updateOrder, 
-    deleteOrder } = require('../controllers/order.controller');
+    deleteOrder 
+} = require('../controllers/order.controller');
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth');
 
 router.get('/order/:id', isAuthenticatedUser, getSingleOrder);
