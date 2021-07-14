@@ -13,7 +13,7 @@ const {
 } = require('../controllers/product.controller');
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth');
 
-router.get('/products', isAuthenticatedUser, getProducts);
+router.get('/products', getProducts);
 router.get('/product/:id', getSingleProduct);
 router.post('/admin/product/new', isAuthenticatedUser, authorizeRoles('admin'), newProduct);
 router.put('/admin/product/:id', isAuthenticatedUser, authorizeRoles('admin'), updateProduct);
