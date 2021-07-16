@@ -6,14 +6,17 @@ const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto')
 
+resolve = require('path').resolve
 
 //Register a user  => /api/v1/register
 exports.registerUser = catchAsyncErrors(async(req,res,next) =>{
-    const result = await cloudinary.v2.uploader.upload(req.body.avatar,{
-        folders: 'avatars',
-        width:150,
-        crop: 'scale'
-    })
+
+    const imageId = function () {
+        return Math.random().toString(36).substr(2, 4);
+    };
+
+    const result = await cloudinary.v2.uploader.upload(req.body.avatar, { public_id: `uploads/images${imageId()}` });
+
     const {name, email, password } =req.body;
 
     const user = await User.create({
