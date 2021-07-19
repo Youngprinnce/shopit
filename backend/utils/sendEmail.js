@@ -8,7 +8,7 @@ const sendMail = async (email, subject, message) => {
   try {
     const data = {
       to: `${email}`,
-      from: 'ShopIT <herokuaaps@gmail.com>',
+      from: 'ShopIT <ebukanathan@gmail.com>',
       subject,
       html: message,
     };

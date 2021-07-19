@@ -84,8 +84,10 @@ exports.forgotPassword = catchAsyncErrors(async(req,res,next) =>{
 
     await user.save({ validateBeforeSave: false })
 
+    const base_url = process.env.FRONTEND_URL
+
     //Creat reset password url
-    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/password/reset/${resetToken}`;
+    const resetUrl = `${base_url}/password/reset/${resetToken}`;
 
     const message = `Your password reset token is as follow: \n ${resetUrl} \n \n if you have not requested this email, then ignore it`
 
@@ -122,7 +124,7 @@ exports.resetPassword = catchAsyncErrors(async(req,res,next) =>{
         return next(new ErrorHandler('password reset token is invalid or has expired'))
     }
 
-    if(req.body.password !== req.body.confirmpassword){
+    if(req.body.password !== req.body.confirmPassword){
         return next(new ErrorHandler('Password does not match', 400))
     }
 
