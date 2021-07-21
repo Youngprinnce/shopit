@@ -21,10 +21,12 @@ app.use(fileUpload())
 const products = require('./routes/product.route');
 const auth = require('./routes/auth.route');
 const order = require('./routes/order.route');
+const payment = require('./routes/payment.route');
 
 app.use('/api/v1', products)
 app.use('/api/v1', auth)
 app.use('/api/v1', order)
+app.use('/api/v1', payment)
 
 
 // Middleware to handle errors
