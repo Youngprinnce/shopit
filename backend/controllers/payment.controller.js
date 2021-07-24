@@ -4,10 +4,11 @@ const {initializePayment, verifyPayment} = require('../intrgrations/paystackClie
 // Process Payment  =>   /api/v1/payment/process
 exports.processPayment =  catchAsyncErrors(async (req, res, next) => {
 
-    const {amount, email} = req.body
+    const {amount} = req.body
+
     const form = {
         amount: amount * 100,
-        email,
+        email: process.env.EMAIL,
     }
 
     const {reference, confirmationUrl} = await initializePayment(form)
