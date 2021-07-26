@@ -56,7 +56,7 @@ const orderSchema = mongoose.Schema({
             type:String,
         },
         status:{
-            tyoe:String,
+            type:String,
         }
     },
     paidAt:{
