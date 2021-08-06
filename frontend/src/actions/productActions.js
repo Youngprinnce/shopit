@@ -70,7 +70,8 @@ export const newProduct = (productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`/api/v1/admin/product/new`, productData, config)
+        const { data } = await axios.post(`http://localhost:4000/api/v1/admin/product/new`, productData, config)
+        console.log(data)
 
         dispatch({
             type: NEW_PRODUCT_SUCCESS,
@@ -185,7 +186,8 @@ export const getAdminProducts = () => async (dispatch) => {
 
         dispatch({ type: ADMIN_PRODUCTS_REQUEST })
 
-        const { data } = await axios.get(`/api/v1/admin/products`)
+        const { data } = await axios.get(`http://localhost:4000/api/v1/admin/products`)
+        console.log(data)
 
         dispatch({
             type: ADMIN_PRODUCTS_SUCCESS,
