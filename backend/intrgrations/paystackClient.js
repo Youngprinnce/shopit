@@ -1,7 +1,7 @@
 const axios = require('axios');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
-
+require('dotenv').config({ path: 'backend/config/config.env' })
 const getHeaders = () => ({
   Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
   'Content-Type': 'application/json',

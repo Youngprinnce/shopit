@@ -48,6 +48,11 @@ const ProcessOrder = ({ match }) => {
         formData.set('status', status);
 
         dispatch(updateOrder(id, formData))
+
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors())
+        }
     }
 
     const shippingDetails = shippingInfo && `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`

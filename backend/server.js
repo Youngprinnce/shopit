@@ -12,10 +12,7 @@ process.on('uncaughtException', err => {
 })
 
 // Setting up config file
-if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
-
-// dotenv.config({ path: 'backend/config/config.env' })
-
+require('dotenv').config({ path: 'backend/config/config.env' })
 
 // Connecting to database
 connectDatabase();
@@ -26,6 +23,8 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
+
+
 
 const server = app.listen(process.env.PORT, () => {
     console.log(`Server started on PORT: ${process.env.PORT} in ${process.env.NODE_ENV} mode.`)

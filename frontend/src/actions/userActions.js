@@ -249,7 +249,7 @@ export const allUsers = () => async (dispatch) => {
 
         dispatch({
             type: ALL_USERS_SUCCESS,
-            payload: data.users
+            payload: data.user
         })
 
     } catch (error) {

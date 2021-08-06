@@ -1,6 +1,4 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-dotenv.config({ path: '../../../backend/config/config.env' })
 
 const getHeaders = () => ({
   Authorization: 'Bearer sk_test_089018cd3a15fb488e0edb78563bdd314c1c8f58',
