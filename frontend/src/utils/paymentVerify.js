@@ -8,14 +8,10 @@ const getHeaders = () => ({
   'cache-control': 'no-cache'
 });
 
-const axiosInstance = axios.create({
-  baseURL: 'https://api.paystack.co/transaction',
-  headers: getHeaders(),
-});
 
 export const paymentVerify = async (ref) => {
 
-    const response = await axiosInstance.get('/verify/'+ encodeURIComponent(ref), getHeaders());
+    const response = await axios.get('https://api.paystack.co/transaction/verify/'+ encodeURIComponent(ref), { headers: getHeaders() });
 
     const { reference, amount, status, metadata, paidAt, gateway_response } = response.data.data;
 

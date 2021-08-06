@@ -37,6 +37,9 @@ import { useSelector } from 'react-redux'
 import store from './store'
 import UpdateProduct from './components/admin/UpdateProduct'
 import OrdersList from './components/admin/OrdersList'
+import ProcessOrder from './components/admin/ProcessOrder'
+import VerifyPayment from './components/cart/VerifyPayment'
+import UsersList from './components/admin/UsersList'
 
 function App() {
 
@@ -59,6 +62,7 @@ function App() {
           <ProtectedRoute path="/shipping" component={Shipping} />
           <ProtectedRoute path="/confirm" component={ConfirmOrder} exact />
           <ProtectedRoute path="/success" component={OrderSuccess} />
+          <ProtectedRoute path="/payment/verify" component={VerifyPayment} />
           
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -77,6 +81,8 @@ function App() {
         <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact />
         <ProtectedRoute path="/admin/product/:id" isAdmin={true} component={UpdateProduct} exact />
         <ProtectedRoute path="/admin/orders" isAdmin={true} component={OrdersList} exact />
+        <ProtectedRoute path="/admin/order/:id" isAdmin={true} component={ProcessOrder} exact />
+        <ProtectedRoute path="/admin/users" isAdmin={true} component={UsersList} exact />
     
 
         {!loading && (!isAuthenticated || user.role !== 'admin') && (

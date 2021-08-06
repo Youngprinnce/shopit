@@ -220,6 +220,48 @@ export const forgotPassword = (email) => async (dispatch) => {
     }
 }
 
+// Get all users
+export const allUsers = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: ALL_USERS_REQUEST })
+
+        const {data} = await axios.get('http://localhost:4000/api/v1/admin/users')
+
+        dispatch({
+            type: ALL_USERS_SUCCESS,
+            payload: data.user
+        })
+
+    } catch (error) {
+        dispatch({
+            type: ALL_USERS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+// Delete user - ADMIN
+export const deleteUser = (id) => async (dispatch) => {
+    try {
+
+        dispatch({ type: DELETE_USER_REQUEST })
+
+        const { data } = await axios.delete(`/api/v1/admin/user/${id}`)
+
+        dispatch({
+            type: DELETE_USER_SUCCESS,
+            payload: data.success
+        })
+
+    } catch (error) {
+        dispatch({
+            type: DELETE_USER_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
 // Reset password
 export const resetPassword = (token, passwords) => async (dispatch) => {
     try {
