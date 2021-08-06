@@ -4,17 +4,8 @@ const fileUpload = require('express-fileupload')
 const cors = require('cors')
 
 const cookieParser = require('cookie-parser')
-// const dotenv = require('dotenv');
 
 const errorMiddleware = require('./middlewares/errors')
-
-// // Setting up config file 
-// if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
-// // dotenv.config({ path: 'backend/config/config.env' })
-
-// if(process.env.NODE_ENV === 'DEVELOPMENT'){
-//     console.log('me')
-// }
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

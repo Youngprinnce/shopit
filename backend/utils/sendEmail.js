@@ -1,6 +1,6 @@
 const sendGridMail = require('@sendgrid/mail');
 const ErrorHandler = require('../utils/errorHandler');
-
+require('dotenv').config({ path: 'backend/config/config.env' })
 sendGridMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // eslint-disable-next-line consistent-return
